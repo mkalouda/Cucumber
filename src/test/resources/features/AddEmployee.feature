@@ -39,3 +39,11 @@ Feature: Adding employees
   @excel
   Scenario: adding the employees from excel file
     When user adds multiple employees from excel file "newEmployees" sheet and verify they are added
+
+  @db
+  Scenario: Add the employee and testing it from backend
+    When user enters first name "Yoooo123" middle name "midsss" and last name "yeaaaa"
+    And capture the employee id
+    And user clicks on save button option
+    Then query the HRMS database
+    And verify the data from frontend and backend

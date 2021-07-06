@@ -3,11 +3,13 @@ package steps;
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import pages.AddEmployeePage;
 import pages.DashBoardPage;
 import utils.CommonMethods;
 import utils.Constants;
 import utils.ExcelReading;
+import utils.Globalvariables;
 
 import java.util.Iterator;
 import java.util.List;
@@ -39,6 +41,9 @@ public class AddEmployeeSteps extends CommonMethods {
         sendText(add.firstName, firstName);
         sendText(add.middleName, middleName);
         sendText(add.lastName, lastName);
+        Globalvariables.firstName=firstName;
+        Globalvariables.middleName=middleName;
+        Globalvariables.lastName=lastName;
     }
     @When("user enters {string} {string} and {string} in the application")
     public void user_enters_and_in_the_application(String firstName, String middleName, String lastName) {
@@ -97,4 +102,28 @@ public class AddEmployeeSteps extends CommonMethods {
             //assertion complete in HW
         }
     }
+
+    @When("capture the employee id")
+    public void capture_the_employee_id() {
+        AddEmployeePage addEmployeePage = new AddEmployeePage();
+        Globalvariables.empId = addEmployeePage.employeeId.getAttribute("value");
+    }
+
+    @Then("verify the data from frontend and backend")
+    public void verify_the_data_from_frontend_and_backend() {
+        System.out.println("Backend");
+        System.out.println("dbFirstname"+Globalvariables.dbFirstName);
+        System.out.println("dbMiddlename"+Globalvariables.dbMiddleName);
+        System.out.println("dblastname"+Globalvariables.dbLastName);
+        System.out.println("Frontend");
+        System.out.println("Firstname"+Globalvariables.firstName);
+        System.out.println("Middlename"+Globalvariables.middleName);
+        System.out.println("Lastname"+Globalvariables.lastName);
+        Assert.assertEquals(Globalvariables.dbFirstName,Globalvariables.firstName);
+        Assert.assertEquals(Globalvariables.dbMiddleName,Globalvariables.middleName);
+        Assert.assertEquals(Globalvariables.dbLastName,Globalvariables.lastName);
+    }
+
+
+
 }
