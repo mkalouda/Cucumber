@@ -19,4 +19,9 @@ public class DbSteps {
         Globalvariables.dbLastName=tableDataAsList.get(0).get("emp_lastname");
     }
 
+    @Then("verify the title is added")
+    public void verify_the_title_is_added() {
+
+    }
+
 }

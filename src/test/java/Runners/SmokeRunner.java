@@ -6,7 +6,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "src/test/resources/features", //specific file "src/test/resources/features/Login.feature"
+        features = "src/test/resources/features/JobTitle.feature", //specific file "src/test/resources/features/Login.feature"
         // where we can find implementation for gherkin steps
         // we provide the path of package for steps
         glue = "steps",
@@ -22,7 +22,7 @@ import org.junit.runner.RunWith;
         // tags will identify the scenarios based on the tags we will provide such as @smoke, @regression, etc....
         // we can add multiple tags in the runner class to execute scenarios belong to different tags
         // such as and/or
-        tags = "@db",
+        //tags = "@db",
         plugin = {"html:target/cucumber.html", "json:target/cucumber.json", "rerun:target/failed.txt"}
 )
 

@@ -5,7 +5,9 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -60,6 +62,39 @@ public class CommonMethods {
     public static void click(WebElement element){
         waitForClickablility(element);
         element.click();
+    }
+
+    public static void waitForVisibility(WebElement element){
+        getWait().until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public static boolean displayed(WebElement element){
+        waitForVisibility(element);
+        return element.isDisplayed();
+    }
+
+    public static boolean selected(WebElement element){
+        waitForVisibility(element);
+        return element.isSelected();
+    }
+
+    public static boolean enabled(WebElement element){
+        waitForVisibility(element);
+        return element.isEnabled();
+    }
+
+    public static Actions action(){
+        Actions action = new Actions(driver);
+        return action;
+    }
+
+    public static void moveToAction(WebElement element){
+        action().moveToElement(element).perform();
+    }
+
+    public static Select select(WebElement element){
+        Select select = new Select(element);
+        return select;
     }
 
     public static JavascriptExecutor getJSExecutor(){

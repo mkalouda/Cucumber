@@ -15,6 +15,15 @@ public class DashBoardPage extends CommonMethods {
     @FindBy(id = "menu_pim_viewPimModule")
     public WebElement PIMOption;
 
+    @FindBy(id = "menu_admin_viewAdminModule")
+    public WebElement AdminOption;
+
+    @FindBy(id = "menu_admin_Job")
+    public WebElement JobOption;
+
+    @FindBy(id = "menu_admin_viewJobTitleList")
+    public WebElement JobTitlesLink;
+
     @FindBy(linkText = "Add Employee")
     public WebElement addEmployeeOption;
 
