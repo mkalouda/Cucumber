@@ -4,7 +4,7 @@ import io.restassured.RestAssured;
 
 public class apiConstants {
 
-    public static final String BaseURI= RestAssured.baseURI = "http://3.237.189.167/syntaxapi/api";
+    public static final String BaseURI = RestAssured.baseURI = "http://3.237.189.167/syntaxapi/api";
     public static final String GENERATE_TOKEN_URI = BaseURI + "/generateToken.php";
     public static final String CREATE_EMPLOYEE_URI = BaseURI + "/createEmployee.php";
     public static final String GET_ONE_EMPLOYEE_URI = BaseURI + "/getOneEmployee.php";

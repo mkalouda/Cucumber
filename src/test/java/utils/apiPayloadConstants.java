@@ -3,7 +3,6 @@ package utils;
 public class apiPayloadConstants {
 
     public static String createEmployeePayload(){
-
         String createEmployeePayload = "{\n" +
                 "  \"emp_firstname\": \"Moe\",\n" +
                 "  \"emp_lastname\": \"Kalouda\",\n" +
@@ -16,7 +15,14 @@ public class apiPayloadConstants {
         return createEmployeePayload;
     }
 
+    public static String createUserPayload(){
+        String createUser = "{\n" +
+                "  \"email\": \"munzzzzz@gmail.com\",\n" +
+                "  \"password\": \"pass333\"\n" +
+                "}";
 
+        return createUser;
+    }
 
 
 }
