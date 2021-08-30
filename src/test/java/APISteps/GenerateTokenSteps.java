@@ -9,7 +9,7 @@ import utils.apiPayloadConstants;
 
 public class GenerateTokenSteps {
 
-    static String token;
+    public static String token;
 
     @Given("a JWT is generated")
     public void a_jwt_is_generated() {
